@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viola City - FiveM Roleplay Server</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .glow {
+            text-shadow: 0 0 20px rgba(139, 69, 19, 0.8);
+        }
+        .nav-item {
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            transition: left 0.3s ease;
+        }
+        .nav-item:hover::before {
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <img src="assets/vc.png" alt="Viola City Logo" class="h-10 w-10 rounded-full">
+                    <h1 class="text-2xl font-bold text-amber-500 glow">Viola City</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-item px-3 py-2 text-lg font-medium text-white hover:text-amber-400 transition-colors">Home</a>
+                    <a href="#about" class="nav-item px-3 py-2 text-lg font-medium text-white hover:text-amber-400 transition-colors">Über uns</a>
+                    <a href="#features" class="nav-item px-3 py-2 text-lg font-medium text-white hover:text-amber-400 transition-colors">Features</a>
+                    <a href="regelwerk.html" class="nav-item px-3 py-2 text-lg font-medium text-white hover:text-amber-400 transition-colors">Regelwerk</a>
+                    <a href="#discord" class="bg-gradient-to-r from-amber-500 to-orange-600 px-6 py-2 rounded-full text-white font-semibold hover:from-amber-600 hover:to-orange-700 transition-all transform hover:scale-105">Discord</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-amber-400">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#home" class="block text-white hover:text-amber-400 transition-colors">Home</a>
+                <a href="#about" class="block text-white hover:text-amber-400 transition-colors">Über uns</a>
+                <a href="#features" class="block text-white hover:text-amber-400 transition-colors">Features</a>
+                <a href="regelwerk.html" class="block text-white hover:text-amber-400 transition-colors">Regelwerk</a>
+                <a href="#discord" class="block bg-gradient-to-r from-amber-500 to-orange-600 px-4 py-2 rounded-full text-white font-semibold text-center">Discord</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="text-center max-w-4xl mx-auto px-4">
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-6 glow animate-pulse">
+                <span class="bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 bg-clip-text text-transparent">
+                    Viola City
+                </span>
+            </h1>
+            <p class="text-xl md:text-3xl mb-8 text-gray-200 font-light">
+                Willkommen in der aufregendsten Roleplay-Community Deutschlands
+            </p>
+            <p class="text-lg md:text-xl mb-12 text-gray-300 max-w-2xl mx-auto">
+                Erlebe authentisches Roleplay in einer lebendigen virtuellen Stadt voller Möglichkeiten, 
+                spannender Geschichten und einer freundlichen Community.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#about" class="bg-gradient-to-r from-amber-500 to-orange-600 px-8 py-4 rounded-full text-white font-bold text-lg hover:from-amber-600 hover:to-orange-700 transition-all transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-play mr-2"></i>Jetzt Spielen
+                </a>
+                <a href="regelwerk.html" class="border-2 border-amber-500 px-8 py-4 rounded-full text-amber-400 font-bold text-lg hover:bg-amber-500 hover:text-black transition-all transform hover:scale-105">
+                    <i class="fas fa-book mr-2"></i>Regelwerk
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-amber-400 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    Über Viola City
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Viola City ist mehr als nur ein Server - es ist eine lebendige Gemeinschaft, 
+                    in der jeder seine eigene Geschichte schreibt.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-bold text-amber-400">Was macht uns besonders?</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-amber-500 rounded-full p-2 mt-1">
+                                <i class="fas fa-users text-black"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white">Starke Community</h4>
+                                <p class="text-gray-300">Eine freundliche und hilfsbereite Gemeinschaft von Roleplay-Enthusiasten</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-amber-500 rounded-full p-2 mt-1">
+                                <i class="fas fa-cogs text-black"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white">Einzigartige Features</h4>
+                                <p class="text-gray-300">Maßgeschneiderte Scripts und Features für ein authentisches Spielerlebnis</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-amber-500 rounded-full p-2 mt-1">
+                                <i class="fas fa-shield-alt text-black"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white">Faire Moderation</h4>
+                                <p class="text-gray-300">Professionelle und faire Moderation für ein angenehmes Spielerlebnis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="bg-gray-900 rounded-xl p-6 -rotate-3">
+                            <h4 class="text-2xl font-bold text-amber-400 mb-4">Server Stats</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Online Spieler:</span>
+                                    <span class="text-white font-bold">64/128</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Aktive Jobs:</span>
+                                    <span class="text-white font-bold">15+</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Events/Woche:</span>
+                                    <span class="text-white font-bold">10+</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Uptime:</span>
+                                    <span class="text-green-400 font-bold">99.9%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                    Server Features
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Entdecke die vielfältigen Möglichkeiten in Viola City
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Cards -->
+                <div class="card-hover bg-gray-900 rounded-2xl p-8 border border-gray-700">
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-briefcase text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Vielfältige Jobs</h3>
+                    <p class="text-gray-300">
+                        Von Polizist über Arzt bis hin zum Geschäftsmann - finde deinen Traumjob in Viola City.
+                    </p>
+                </div>
+
+                <div class="card-hover bg-gray-900 rounded-2xl p-8 border border-gray-700">
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-car text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Realistische Fahrzeuge</h3>
+                    <p class="text-gray-300">
+                        Über 200 realistische Fahrzeuge mit authentischer Physik und Tuning-Möglichkeiten.
+                    </p>
+                </div>
+
+                <div class="card-hover bg-gray-900 rounded-2xl p-8 border border-gray-700">
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Immobilien System</h3>
+                    <p class="text-gray-300">
+                        Kaufe oder miete Häuser, Apartments und Geschäfte. Gestalte dein eigenes Zuhause.
+                    </p>
+                </div>
+
+                <div class="card-hover bg-gray-900 rounded-2xl p-8 border border-gray-700">
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-gavel text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Justiz System</h3>
+                    <p class="text-gray-300">
+                        Realistisches Gerichts- und Gefängnissystem für authentisches Roleplay.
+                    </p>
+                </div>
+
+                <div class="card-hover bg-gray-900 rounded-2xl p-8 border border-gray-700">
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Events & Aktivitäten</h3>
+                    <p class="text-gray-300">
+                        Regelmäßige Events, Rennen, Parties und Community-Aktivitäten für jeden Geschmack.
+                    </p>
+                </div>
+
+                <div class="card-hover bg-gray-900 rounded-2xl p-8 border border-gray-700">
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">24/7 Support</h3>
+                    <p class="text-gray-300">
+                        Unser engagiertes Team steht dir rund um die Uhr zur Verfügung.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Section -->
+    <section id="discord" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                Tritt unserer Community bei
+            </h2>
+            <p class="text-xl text-gray-300 mb-12">
+                Verbinde dich mit anderen Spielern, bleibe über Updates informiert und finde neue Freunde in unserem Discord Server.
+            </p>
+            <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-2xl">
+                <div class="flex items-center justify-center space-x-4 mb-6">
+                    <i class="fab fa-discord text-5xl text-indigo-400"></i>
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold text-white">Viola City Discord</h3>
+                        <p class="text-gray-400">1,234 Mitglieder online</p>
+                    </div>
+                </div>
+                <a href="#" class="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 px-8 py-4 rounded-full text-white font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
+                    <i class="fab fa-discord mr-3 text-xl"></i>
+                    Discord Beitreten
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <img src="assets/vc.png" alt="Viola City Logo" class="h-10 w-10 rounded-full">
+                        <h3 class="text-2xl font-bold text-amber-500">Viola City</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        Die beste deutsche FiveM Roleplay Community. 
+                        Erlebe authentisches Roleplay in einer lebendigen virtuellen Stadt.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-4">Schnelllinks</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-amber-400 transition-colors">Über uns</a></li>
+                        <li><a href="regelwerk.html" class="text-gray-400 hover:text-amber-400 transition-colors">Regelwerk</a></li>
+                        <li><a href="#discord" class="text-gray-400 hover:text-amber-400 transition-colors">Discord</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-4">Server Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-server mr-2 text-amber-400"></i>IP: viola-city.de</p>
+                        <p><i class="fas fa-users mr-2 text-amber-400"></i>Slots: 128</p>
+                        <p><i class="fas fa-clock mr-2 text-amber-400"></i>24/7 Online</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-8">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 Viola City. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-opacity-95');
+            } else {
+                nav.classList.remove('bg-opacity-95');
+            }
+        });
+    </script>
+</body>
+</html>
